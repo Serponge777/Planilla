@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Costos de Importación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Calculadora de Costos de Importación</h1>
+  <form id="importForm">
+    <div class="input-item">
+      <label for="profitMargin">Margen de Ganancia Esperado (%)</label>
+      <input type="number" id="profitMargin" required>
+    </div>
+    <div class="input-item">
+      <label for="exchangeRate">Tipo de Cambio (Córdobas por Dólar)</label>
+      <input type="number" id="exchangeRate" required>
+    </div>
+    <div class="input-item">
+      <label for="quantities">Cantidades</label>
+      <input type="number" id="quantities" required>
+    </div>
+    <div class="input-item">
+      <label for="measurementUnits">Unidades de Medida</label>
+      <select id="measurementUnits" required>
+        <option value="unidad">Unidad</option>
+        <option value="kilogramo">Kilogramo</option>
+        <option value="metro">Metro</option>
+        <option value="litro">Litro</option>
+        <option value="caja">Caja</option>
+        <option value="paquete">Paquete</option>
+        <option value="docena">Docena</option>
+        <option value="tonelada">Tonelada</option>
+        <option value="litro">Litro</option>
+        <option value="barril">Barril</option>
+      </select>
+    </div>
+    <div class="input-item">
+      <label for="description">Descripción</label>
+      <input type="text" id="description" required>
+    </div>
+    <div class="input-item">
+      <label for="totalPrice">Precio Total de la Mercancía ($)</label>
+      <input type="number" id="totalPrice" required>
+    </div>
+    <div class="input-item">
+      <label for="customsDuty">Porcentaje de Arancel y Derechos Aduaneros (%)</label>
+      <input type="number" id="customsDuty" required>
+    </div>
+    <div class="input-item">
+      <label for="selectiveTax">Porcentaje de Impuesto Selectivo al Consumo (%)</label>
+      <input type="number" id="selectiveTax" required>
+    </div>
+    <div class="input-item">
+      <label for="vat">Porcentaje de Impuesto al Valor Agregado (IVA) (%)</label>
+      <input type="number" id="vat" value="15" required>
+    </div>
+    <div class="input-item">
+      <label for="transportCost">Costo del Transporte ($)</label>
+      <input type="number" id="transportCost" required>
+    </div>
+    <div class="input-item">
+      <label for="warehouseCost">Costo del Almacén ($)</label>
+      <input type="number" id="warehouseCost" required>
+    </div>
+    <div class="input-item">
+      <label for="customsAgencyCost">Costo de la Agencia Aduanera ($)</label>
+      <input type="number" id="customsAgencyCost" required>
+    </div>
+    <div class="input-item">
+      <label for="insuranceCost">Costo del Seguro ($)</label>
+      <input type="number" id="insuranceCost" required>
+    </div>
+    <div class="input-item">
+      <label for="freightCost">Costo del Flete ($)</label>
+      <input type="number" id="freightCost" required>
+    </div>
+    <button type="button" onclick="calcular()">Calcular</button>
+  </form>
+
+  <div class="results" id="resultsSection" style="display: none;">
+    <h2>Resultados</h2>
+    <div class="result-item">
+      <span>FOB (Cantidades x Precio Unitario):</span>
+      <span id="fobValue"></span>
+    </div>
+    <div class="result-item">
+      <span>CIF U$ (CIF Dólares):</span>
+      <span id="cifUSDValue"></span>
+    </div>
+    <div class="result-item">
+      <span>CIF C$ (CIF Córdobas):</span>
+      <span id="cifCordobasValue"></span>
+    </div>
+    <div class="result-item">
+      <span>Total en FOB:</span>
+      <span id="totalFOB"></span>
+    </div>
+    <div class="result-item">
+      <span>Total en % de Participación:</span>
+      <span id="totalParticipation"></span>
+    </div>
+    <div class="result-item">
+      <span>Total en Flete:</span>
+      <span id="totalFreight"></span>
+    </div>
+    <div class="result-item">
+      <span>Total en Seguro:</span>
+      <span id="totalInsurance"></span>
+    </div>
+    <div class="result-item">
+      <span>Total en CIF:</span>
+      <span id="totalCIF"></span>
+    </div>
+    <div class="result-item">
+      <span>Monto de Costos de Internación:</span>
+      <span id="totalInternationCosts"></span>
+    </div>
+    <div class="result-item">
+      <span>Costo Total sin Impuestos:</span>
+      <span id="totalCostWithoutTaxes"></span>
+    </div>
+    <div class="result-item">
+      <span>Costo Unitario:</span>
+      <span id="unitCost"></span>
+    </div>
+    <div class="result-item">
+      <span>Precio de Venta:</span>
+      <span id="suggestedSalePrice"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+        </html>
+                                  
